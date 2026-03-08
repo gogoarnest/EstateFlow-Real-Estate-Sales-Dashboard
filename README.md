@@ -1,97 +1,82 @@
-EstateFlow – Real Estate Sales Dashboard
+# 🏠 EstateFlow – Real Estate Sales Dashboard
 
 EstateFlow is a web-based system designed for real estate companies to help sales teams manage property units, update prices, search listings quickly, and generate client-ready offers.
 
-The platform allows sales agents to easily find the most suitable property based on client requirements such as budget, location, property type, and number of bedrooms.
+The system allows sales agents to find the best matching property based on client requirements such as **budget, area, and number of bedrooms**.
 
-EstateFlow aims to simplify the daily workflow of real estate sales teams by providing a fast and organized dashboard for managing listings and responding to client requests efficiently.
+This project is built as a **portfolio project** and can also be used as a **freelance product for small real estate companies**.
 
-This project is developed as both:
 
-A portfolio project
+---
 
-A freelance-ready product for small and medium real estate companies
+# ⚙️ Tech Stack
 
-Tech Stack
-Frontend
+### Frontend
+- HTML
+- CSS
+- JavaScript
 
-HTML
+### Backend
+- PHP
 
-CSS
+### Database
+- MySQL
 
-JavaScript
+### Environment
+- XAMPP
 
-Backend
 
-PHP
+---
 
-Database
+# 👥 System Roles
 
-MySQL
+### Admin
+- Manage users
+- Manage teams
+- Add/Edit areas
+- Add/Edit compounds
 
-Environment
+### Team Leader
+- Add units
+- Edit prices
+- Manage units for their team
 
-XAMPP
+### Senior
+- Same permissions as Team Leader
 
-System Roles
-Admin
+### Sales
+- Search units
+- Apply filters
+- Compare units
+- Generate PDF offers
 
-Manage system users
 
-Manage teams
+---
 
-Add and edit areas
+# 🚀 Core Features
 
-Add and edit compounds
+- Authentication System
+- Units Management
+- Areas & Compounds Management
+- Advanced Filters
+- Smart Match
+- Compare Units
+- PDF Offer Generator
 
-Team Leader
 
-Add new units
+---
 
-Edit property prices
+# 🎯 Project Goal
 
-Manage units assigned to their team
+Build a **professional real estate dashboard** that can be used as:
 
-Senior
+- 📁 Portfolio Project
+- 💼 Freelance Product
+- ☁️ Potential SaaS System
 
-Same permissions as Team Leader
 
-Sales
+---
 
-Search property units
+# 👨‍💻 Author
 
-Apply advanced filters
-
-Compare multiple units
-
-Generate PDF offers for clients
-
-Core Features
-
-Authentication System
-
-Units Management
-
-Areas & Compounds Management
-
-Advanced Filters
-
-Smart Match System
-
-Compare Units
-
-PDF Offer Generator
-
-Project Goal
-
-The goal of EstateFlow is to build a professional real estate dashboard that can be used as:
-
-A Portfolio Project
-
-A Freelance Product
-
-A potential SaaS Platform for Real Estate Companies
-
-Author
-
-George Arnest Rofaiel Farag
+**George Arnest Rofaiel Farag**
