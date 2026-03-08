@@ -1,10 +1,10 @@
 # 🏠 EstateFlow – Real Estate Sales Dashboard
 
-EstateFlow is a web-based system designed for real estate companies to help sales teams manage property units, update prices, search listings quickly, and generate client-ready offers.
+EstateFlow is a web-based system designed to help real estate companies manage property units, update prices, search listings efficiently, and generate client-ready offers.
 
-The system allows sales agents to find the best matching property based on client requirements such as **budget, area, and number of bedrooms**.
+The platform allows sales agents to quickly find the most suitable properties based on client requirements such as **budget, location, and number of bedrooms**.
 
-This project is built as a **portfolio project** and can also be used as a **freelance product for small real estate companies**.
+EstateFlow provides an organized and user-friendly dashboard that simplifies daily operations for real estate teams and improves the speed of responding to client requests.
 
 
 ---
@@ -31,24 +31,24 @@ This project is built as a **portfolio project** and can also be used as a **fre
 # 👥 System Roles
 
 ### Admin
-- Manage users
+- Manage system users
 - Manage teams
-- Add/Edit areas
-- Add/Edit compounds
+- Add and edit areas
+- Add and edit compounds
 
 ### Team Leader
-- Add units
-- Edit prices
-- Manage units for their team
+- Add property units
+- Update prices
+- Manage units for their assigned team
 
 ### Senior
 - Same permissions as Team Leader
 
 ### Sales
-- Search units
-- Apply filters
-- Compare units
-- Generate PDF offers
+- Search property units
+- Apply advanced filters
+- Compare multiple units
+- Generate PDF offers for clients
 
 
 ---
@@ -62,21 +62,21 @@ This project is built as a **portfolio project** and can also be used as a **fre
 - Smart Match
 - Compare Units
 - PDF Offer Generator
+- Role-Based Access Control
 
 
 ---
 
 # 🎯 Project Goal
 
-Build a **professional real estate dashboard** that can be used as:
+EstateFlow aims to provide a practical dashboard solution that improves how real estate teams manage property listings and client requests.
 
-- 📁 Portfolio Project
-- 💼 Freelance Product
-- ☁️ Potential SaaS System
+The system focuses on speed, organization, and ease of use to support real estate sales workflows.
 
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Authors
 
-**George Arnest Rofaiel Farag**
+- **George Arnest Rofaiel Farag** — Frontend Developer  
+- **Fady Tamer** — Frontend Developer
