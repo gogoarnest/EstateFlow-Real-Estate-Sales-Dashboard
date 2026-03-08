@@ -1,0 +1,264 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  margin: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+header .logo p {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+header nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+header nav ul li a {
+  font-size: 17px;
+  font-weight: 500;
+  color: #111827;
+  transition: 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #c82021;
+}
+
+header .header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+header .header-buttons a {
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 22px;
+  transition: 0.3s ease;
+}
+
+header .header-buttons a:first-child {
+  color: #111827;
+}
+
+header .header-buttons a:last-child {
+  color: #fff;
+  background-color: #c82021;
+}
+
+header .header-buttons a:last-child:hover {
+  background-color: #a81819;
+}
+
+/* Hero */
+main .hero {
+  position: relative;
+  min-height: 600px;
+  margin: 0 40px 40px;
+  border-radius: 24px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("images/hero-background.png") center/cover no-repeat;
+}
+
+main .hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+main .hero .hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+main .hero .hero-content h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+main .hero .hero-content p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #f3f4f6;
+  margin-bottom: 36px;
+}
+
+main .hero .hero-content .search {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 8px;
+}
+
+main .hero .hero-content .search input {
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  color: #111827;
+}
+
+main .hero .hero-content .search button {
+  min-width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #c82021;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+main .hero .hero-content .search button:hover {
+  background-color: #a81819;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  header {
+    margin: 20px 24px;
+    justify-content: center;
+  }
+
+  header .logo p {
+    font-size: 26px;
+  }
+
+  header nav ul {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  main .hero {
+    margin: 0 24px 24px;
+    min-height: 520px;
+  }
+
+  main .hero .hero-content h1 {
+    font-size: 42px;
+  }
+
+  main .hero .hero-content p {
+    font-size: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  header {
+    margin: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .logo p {
+    font-size: 24px;
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  header .header-buttons {
+    width: 100%;
+  }
+
+  header .header-buttons a {
+    text-align: center;
+  }
+
+  main .hero {
+    margin: 0 16px 16px;
+    min-height: 460px;
+    border-radius: 18px;
+  }
+
+  main .hero .hero-content {
+    padding: 28px 16px;
+  }
+
+  main .hero .hero-content h1 {
+    font-size: 32px;
+  }
+
+  main .hero .hero-content p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  main .hero .hero-content .search {
+    flex-direction: row;
+    padding: 6px;
+  }
+
+  main .hero .hero-content .search input {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  main .hero .hero-content .search button {
+    min-width: 46px;
+    height: 46px;
+  }
+}
