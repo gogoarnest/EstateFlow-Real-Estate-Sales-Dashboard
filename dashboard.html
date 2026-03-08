@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EstateFlow | Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <h2 class="logo">EstateFlow</h2>
+        <p class="sidebar-subtitle">Real Estate Dashboard</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="units.html">Units</a></li>
+          <li><a href="add-unit.html">Add Unit</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="#">Teams</a></li>
+          <li><a href="#">Areas</a></li>
+          <li><a href="#">Compounds</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Overview of your real estate operations</p>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-box">
+            <span class="user-role">Admin</span>
+            <div class="user-avatar">G</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Units</h3>
+          <p>120</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Available Units</h3>
+          <p>80</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Sold Units</h3>
+          <p>28</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Areas</h3>
+          <p>6</p>
+        </div>
+      </section>
+
+      <!-- Main Dashboard Sections -->
+      <section class="dashboard-grid">
+        <div class="panel recent-updates">
+          <div class="panel-header">
+            <h2>Recent Updates</h2>
+          </div>
+
+          <div class="update-list">
+            <div class="update-item">
+              <div>
+                <h4>Mivida Apartment</h4>
+                <p>Price updated to 8,000,000 EGP</p>
+              </div>
+              <span>2h ago</span>
+            </div>
+
+            <div class="update-item">
+              <div>
+                <h4>Palm Hills Villa</h4>
+                <p>Status changed to Sold</p>
+              </div>
+              <span>5h ago</span>
+            </div>
+
+            <div class="update-item">
+              <div>
+                <h4>Badya Unit</h4>
+                <p>New unit added successfully</p>
+              </div>
+              <span>1d ago</span>
+            </div>
+
+            <div class="update-item">
+              <div>
+                <h4>Mountain View Listing</h4>
+                <p>Assigned to New Cairo team</p>
+              </div>
+              <span>2d ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel quick-actions">
+          <div class="panel-header">
+            <h2>Quick Actions</h2>
+          </div>
+
+          <div class="actions-list">
+            <button>Add New Unit</button>
+            <button>Manage Areas</button>
+            <button>Manage Compounds</button>
+            <button>View Teams</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
