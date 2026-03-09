@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EstateFlow | Compounds</title>
+  <title>EstateFlow | Teams</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/compounds.css" />
+  <link rel="stylesheet" href="css/teams.css" />
 </head>
 
 <body>
@@ -26,9 +26,9 @@
           <li><a href="dashboard.html">Dashboard</a></li>
           <li><a href="units.html">Units</a></li>
           <li><a href="add-unit.html">Add Unit</a></li>
-          <li><a href="teams.html">Teams</a></li>
+          <li><a href="teams.html" class="active">Teams</a></li>
           <li><a href="areas.html">Areas</a></li>
-          <li><a href="compounds.html" class="active">Compounds</a></li>
+          <li><a href="compounds.html">Compounds</a></li>
         </ul>
       </nav>
     </aside>
@@ -36,8 +36,8 @@
     <main class="main-content">
       <header class="topbar">
         <div class="topbar-text">
-          <h1>Compounds</h1>
-          <p>Manage compounds and link them to areas</p>
+          <h1>Teams</h1>
+          <p>Manage all available real estate teams</p>
         </div>
 
         <div class="user-box">
@@ -48,83 +48,76 @@
 
       <section class="form-section">
         <div class="section-header">
-          <h2>Add New Compound</h2>
-          <p>Create compounds dynamically for future search and filtering</p>
+          <h2>Add New Team</h2>
+          <p>Create and assign new teams to specific areas</p>
         </div>
 
-        <form class="compound-form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="compound-name">Compound Name</label>
-              <input type="text" id="compound-name" placeholder="Enter compound name" required />
-            </div>
-
-            <div class="form-group">
-              <label for="area">Select Area</label>
-              <select id="area" required>
-                <option value="">Select Area</option>
-                <option value="new-cairo">New Cairo</option>
-                <option value="sheikh-zayed">Sheikh Zayed</option>
-                <option value="october">October</option>
-                <option value="north-coast">North Coast</option>
-              </select>
-            </div>
+        <form class="team-form">
+          <div class="form-group">
+            <label for="team-name">Team Name</label>
+            <input type="text" id="team-name" placeholder="Enter Team name" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="area">Area</label>
+            <select id="area" required>
+              <option value="">Select Area</option>
+              <option value="New Cairo">New Cairo</option>
+              <option value="Sheikh Zayed">Sheikh Zayed</option>
+              <option value="October">October</option>
+              <option value="North Coast">North Coast</option>
+            </select>
           </div>
 
-          <button type="submit" class="primary-btn">Add Compound</button>
+          <button type="submit" class="primary-btn">Add Team</button>
         </form>
       </section>
 
       <section class="table-section">
         <div class="section-header">
-          <h2>Compounds List</h2>
-          <p>All compounds linked to their related areas</p>
+          <h2>Teams List</h2>
+          <p>All active teams will appear here</p>
         </div>
 
         <div class="table-wrapper">
           <table>
-            <caption class="sr-only">List of all active real estate compounds and their associated areas</caption>
+            <caption class="sr-only">List of all real estate teams and their assigned areas</caption>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Compound Name</th>
+                <th>Team Name</th>
                 <th>Area</th>
                 <th>Created By</th>
-                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>#01</td>
-                <td>Mivida</td>
+                <td>Team 1</td>
                 <td>New Cairo</td>
                 <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#02</td>
-                <td>Palm Hills</td>
-                <td>October</td>
+                <td>Team 2</td>
+                <td>Sheikh Zayed</td>
                 <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#03</td>
-                <td>Mountain View</td>
-                <td>New Cairo</td>
+                <td>Team 3</td>
+                <td>October</td>
                 <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#04</td>
-                <td>Marassi</td>
+                <td>Team 4</td>
                 <td>North Coast</td>
                 <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
             </tbody>

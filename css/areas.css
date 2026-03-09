@@ -1,10 +1,35 @@
+/* =========================================
+   Utility Classes
+   ========================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* =========================================
+   Base Layout & Structure
+   ========================================= */
 .page-layout {
   display: flex;
   min-height: 100vh;
   background-color: var(--background);
 }
 
-/* Sidebar */
+.main-content {
+  flex: 1;
+  padding: 28px;
+}
+
+/* =========================================
+   Sidebar
+   ========================================= */
 .sidebar {
   width: 260px;
   background-color: var(--primary-dark);
@@ -33,6 +58,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar-nav ul li a {
@@ -42,7 +69,8 @@
   font-size: 15px;
   font-weight: 500;
   color: var(--white);
-  transition: 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .sidebar-nav ul li a:hover,
@@ -50,12 +78,9 @@
   background-color: #1e293b;
 }
 
-/* Main */
-.main-content {
-  flex: 1;
-  padding: 28px;
-}
-
+/* =========================================
+   Topbar & User Box
+   ========================================= */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -65,12 +90,12 @@
   margin-bottom: 24px;
 }
 
-.topbar h1 {
+.topbar-text h1 {
   font-size: 32px;
   margin-bottom: 6px;
 }
 
-.topbar p {
+.topbar-text p {
   color: var(--text-muted);
   font-size: 15px;
 }
@@ -103,6 +128,9 @@
   font-weight: 700;
 }
 
+/* =========================================
+   Sections & Typography
+   ========================================= */
 .form-section,
 .table-section {
   background-color: var(--white);
@@ -129,10 +157,13 @@
   color: var(--text-muted);
 }
 
+/* =========================================
+   Form Layout
+   ========================================= */
 .area-form {
   display: flex;
   gap: 16px;
-  align-items: end;
+  align-items: flex-end; /* Aligns button with input */
   flex-wrap: wrap;
 }
 
@@ -147,6 +178,7 @@
 .form-group label {
   font-size: 14px;
   font-weight: 500;
+  color: var(--text-main);
 }
 
 .form-group input {
@@ -156,6 +188,8 @@
   border-radius: var(--radius-md);
   outline: none;
   font-size: 15px;
+  background-color: var(--white);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus {
@@ -172,13 +206,17 @@
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease;
+  height: 50px; /* Aligns with input field */
 }
 
 .primary-btn:hover {
   background-color: #a81819;
 }
 
+/* =========================================
+   Table Layout
+   ========================================= */
 .table-wrapper {
   overflow-x: auto;
 }
@@ -203,6 +241,7 @@ td {
 th {
   font-size: 14px;
   font-weight: 600;
+  color: var(--text-main);
 }
 
 td {
@@ -210,6 +249,7 @@ td {
   color: #374151;
 }
 
+/* Status Badges */
 .status {
   display: inline-block;
   padding: 6px 12px;
@@ -223,19 +263,25 @@ td {
   color: #166534;
 }
 
-.action-btn {
+/* Table Actions */
+.table-btn {
   padding: 8px 14px;
   border: none;
   border-radius: 8px;
   background-color: var(--primary-dark);
   color: var(--white);
   cursor: pointer;
-  transition: 0.3s ease;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.action-btn:hover {
+.table-btn:hover {
   background-color: #1e293b;
 }
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
 
 /* Tablet */
 @media (max-width: 992px) {
@@ -275,7 +321,7 @@ td {
     padding: 16px;
   }
 
-  .topbar h1 {
+  .topbar-text h1 {
     font-size: 26px;
   }
 
@@ -295,7 +341,8 @@ td {
     align-items: stretch;
   }
 
-  .form-group {
-    min-width: 100%;
+  .primary-btn {
+    width: 100%;
+    height: auto; /* Reset height for stacked layout */
   }
 }

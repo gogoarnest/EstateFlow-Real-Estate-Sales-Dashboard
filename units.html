@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +15,6 @@
 
 <body>
   <div class="units-layout">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-top">
         <h2 class="logo">EstateFlow</h2>
@@ -28,26 +26,28 @@
           <li><a href="dashboard.html">Dashboard</a></li>
           <li><a href="units.html" class="active">Units</a></li>
           <li><a href="add-unit.html">Add Unit</a></li>
-          <li><a href="compare.html">Compare</a></li>
-          <li><a href="#">Teams</a></li>
-          <li><a href="#">Areas</a></li>
-          <li><a href="#">Compounds</a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="compounds.html">Compounds</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- Main -->
     <main class="main-content">
       <header class="topbar">
-        <div>
+        <div class="topbar-text">
           <h1>Units</h1>
           <p>Manage and search all property units</p>
         </div>
-
-        <a href="add-unit.html" class="add-unit-btn">+ Add Unit</a>
+        <div class="topbar-btns">
+          <a href="compare.html" class="topbar-btn compare-btn">
+            Compare
+            <span class="badge">0</span>
+          </a>
+          <a href="add-unit.html" class="topbar-btn add-unit-btn">+ Add Unit</a>
+        </div>
       </header>
 
-      <!-- Filters -->
       <section class="filters-section">
         <div class="filters-grid">
           <div class="filter-group search-group">
@@ -58,60 +58,59 @@
           <div class="filter-group">
             <label for="area">Area</label>
             <select id="area">
-              <option>All Areas</option>
-              <option>New Cairo</option>
-              <option>Sheikh Zayed</option>
-              <option>October</option>
-              <option>North Coast</option>
+              <option value="all">All Areas</option>
+              <option value="new-cairo">New Cairo</option>
+              <option value="sheikh-zayed">Sheikh Zayed</option>
+              <option value="october">October</option>
+              <option value="north-coast">North Coast</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="compound">Compound</label>
             <select id="compound">
-              <option>All Compounds</option>
-              <option>Mivida</option>
-              <option>Palm Hills</option>
-              <option>Mountain View</option>
-              <option>Badya</option>
+              <option value="all">All Compounds</option>
+              <option value="mivida">Mivida</option>
+              <option value="palm-hills">Palm Hills</option>
+              <option value="mountain-view">Mountain View</option>
+              <option value="badya">Badya</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="bedrooms">Bedrooms</label>
             <select id="bedrooms">
-              <option>Any</option>
-              <option>1 Bedroom</option>
-              <option>2 Bedrooms</option>
-              <option>3 Bedrooms</option>
-              <option>4+ Bedrooms</option>
+              <option value="any">Any</option>
+              <option value="1">1 Bedroom</option>
+              <option value="2">2 Bedrooms</option>
+              <option value="3">3 Bedrooms</option>
+              <option value="4+">4+ Bedrooms</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="status">Status</label>
             <select id="status">
-              <option>All Status</option>
-              <option>Available</option>
-              <option>Sold</option>
-              <option>Reserved</option>
+              <option value="all">All Status</option>
+              <option value="available">Available</option>
+              <option value="sold">Sold</option>
+              <option value="reserved">Reserved</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="budget">Budget</label>
             <select id="budget">
-              <option>Any Budget</option>
-              <option>Up to 5M</option>
-              <option>5M - 8M</option>
-              <option>8M - 12M</option>
-              <option>12M+</option>
+              <option value="any">Any Budget</option>
+              <option value="5m">Up to 5M</option>
+              <option value="5m-8m">5M - 8M</option>
+              <option value="8m-12m">8M - 12M</option>
+              <option value="12m+">12M+</option>
             </select>
           </div>
         </div>
       </section>
 
-      <!-- Units Table -->
       <section class="table-section">
         <div class="table-header">
           <h2>Property Units</h2>
@@ -120,6 +119,7 @@
 
         <div class="table-wrapper">
           <table>
+            <caption class="sr-only">List of available property units with details and actions</caption>
             <thead>
               <tr>
                 <th>ID</th>
@@ -131,7 +131,6 @@
                 <th>Action</th>
               </tr>
             </thead>
-
             <tbody>
               <tr>
                 <td>#101</td>
@@ -140,9 +139,11 @@
                 <td>8,000,000 EGP</td>
                 <td>3</td>
                 <td><span class="status available">Available</span></td>
-                <td><button class="action-btn">View</button></td>
+                <td class="table-actions">
+                  <button class="table-btn table-compare-btn">Add to Compare</button>
+                  <button class="table-btn table-view-btn">View</button>
+                </td>
               </tr>
-
               <tr>
                 <td>#102</td>
                 <td>Palm Hills</td>
@@ -150,9 +151,11 @@
                 <td>6,500,000 EGP</td>
                 <td>2</td>
                 <td><span class="status sold">Sold</span></td>
-                <td><button class="action-btn">View</button></td>
+                <td class="table-actions">
+                  <button class="table-btn table-compare-btn">Add to Compare</button>
+                  <button class="table-btn table-view-btn">View</button>
+                </td>
               </tr>
-
               <tr>
                 <td>#103</td>
                 <td>Mountain View</td>
@@ -160,9 +163,11 @@
                 <td>9,200,000 EGP</td>
                 <td>4</td>
                 <td><span class="status reserved">Reserved</span></td>
-                <td><button class="action-btn">View</button></td>
+                <td class="table-actions">
+                  <button class="table-btn table-compare-btn">Add to Compare</button>
+                  <button class="table-btn table-view-btn">View</button>
+                </td>
               </tr>
-
               <tr>
                 <td>#104</td>
                 <td>Badya</td>
@@ -170,9 +175,11 @@
                 <td>7,100,000 EGP</td>
                 <td>3</td>
                 <td><span class="status available">Available</span></td>
-                <td><button class="action-btn">View</button></td>
+                <td class="table-actions">
+                  <button class="table-btn table-compare-btn">Add to Compare</button>
+                  <button class="table-btn table-view-btn">View</button>
+                </td>
               </tr>
-
               <tr>
                 <td>#105</td>
                 <td>Marassi</td>
@@ -180,7 +187,10 @@
                 <td>12,500,000 EGP</td>
                 <td>4</td>
                 <td><span class="status available">Available</span></td>
-                <td><button class="action-btn">View</button></td>
+                <td class="table-actions">
+                  <button class="table-btn table-compare-btn">Add to Compare</button>
+                  <button class="table-btn table-view-btn">View</button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -188,7 +198,8 @@
       </section>
     </main>
   </div>
-  <script src="js/script.js"></script>
-</body>
 
+  <script src="js/script.js"></script>
+  <script src="js/compare.js"></script>
+</body>
 </html>

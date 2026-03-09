@@ -1,250 +1,195 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EstateFlow | Add Unit</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EstateFlow | Add Unit</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/add-unit.css" />
-  </head>
-  <body>
-    <div class="page-layout">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-top">
-          <h2 class="logo">EstateFlow</h2>
-          <p class="sidebar-subtitle">Real Estate Dashboard</p>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/add-unit.css" />
+</head>
+
+<body>
+  <div class="page-layout">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <h2 class="logo">EstateFlow</h2>
+        <p class="sidebar-subtitle">Real Estate Dashboard</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="units.html">Units</a></li>
+          <li><a href="add-unit.html" class="active">Add Unit</a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="compounds.html">Compounds</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-text">
+          <h1>Add Unit</h1>
+          <p>Create a new property unit and assign it to the correct area, compound, and team</p>
         </div>
 
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="units.html">Units</a></li>
-            <li><a href="add-unit.html" class="active">Add Unit</a></li>
-            <li><a href="compare.html">Compare</a></li>
-            <li><a href="#">Teams</a></li>
-            <li><a href="areas.html">Areas</a></li>
-            <li><a href="compounds.html">Compounds</a></li>
-          </ul>
-        </nav>
-      </aside>
+        <div class="user-box">
+          <span class="user-role">Admin</span>
+          <div class="user-avatar">G</div>
+        </div>
+      </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <header class="topbar">
-          <div>
-            <h1>Add Unit</h1>
-            <p>
-              Create a new property unit and assign it to the correct area,
-              compound, and team
-            </p>
-          </div>
+      <section class="form-section">
+        <div class="section-header">
+          <h2>Unit Information</h2>
+          <p>Fill in the details below to create a new listing</p>
+        </div>
 
-          <div class="user-box">
-            <span class="user-role">Admin</span>
-            <div class="user-avatar">G</div>
-          </div>
-        </header>
-
-        <section class="form-section">
-          <div class="section-header">
-            <h2>Unit Information</h2>
-            <p>Fill in the details below to create a new listing</p>
-          </div>
-
-          <form class="unit-form">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="unit-title">Unit Title</label>
-                <input
-                  type="text"
-                  id="unit-title"
-                  placeholder="Enter unit title"
-                />
-              </div>
-
-              <!-- Area -->
-              <div class="form-group">
-                <label for="area">Area</label>
-                <select
-                  id="area"
-                  onchange="toggleOtherField('area', 'other-area-group')"
-                >
-                  <option value="">Select Area</option>
-                  <option value="New Cairo">New Cairo</option>
-                  <option value="Sheikh Zayed">Sheikh Zayed</option>
-                  <option value="October">October</option>
-                  <option value="North Coast">North Coast</option>
-                  <option value="other">+ Add New Area</option>
-                </select>
-              </div>
-
-              <div class="form-group hidden" id="other-area-group">
-                <label for="other-area">Add New Area</label>
-                <input
-                  type="text"
-                  id="other-area"
-                  placeholder="Enter new area name"
-                />
-              </div>
-
-              <!-- Compound -->
-              <div class="form-group">
-                <label for="compound">Compound</label>
-                <select
-                  id="compound"
-                  onchange="
-                    toggleOtherField('compound', 'other-compound-group')
-                  "
-                >
-                  <option value="">Select Compound</option>
-                  <option value="Mivida">Mivida</option>
-                  <option value="Mountain View">Mountain View</option>
-                  <option value="Palm Hills">Palm Hills</option>
-                  <option value="Marassi">Marassi</option>
-                  <option value="other">+ Add New Compound</option>
-                </select>
-              </div>
-
-              <div class="form-group hidden" id="other-compound-group">
-                <label for="other-compound">Add New Compound</label>
-                <input
-                  type="text"
-                  id="other-compound"
-                  placeholder="Enter new compound name"
-                />
-              </div>
-
-              <!-- Type -->
-              <div class="form-group">
-                <label for="unit-type">Unit Type</label>
-                <select
-                  id="unit-type"
-                  onchange="toggleOtherField('unit-type', 'other-type-group')"
-                >
-                  <option value="">Select Type</option>
-                  <option value="Apartment">Apartment</option>
-                  <option value="Villa">Villa</option>
-                  <option value="Townhouse">Townhouse</option>
-                  <option value="Twin House">Twin House</option>
-                  <option value="Chalet">Chalet</option>
-                  <option value="Standalone">Standalone</option>
-                  <option value="other">+ Add New Type</option>
-                </select>
-              </div>
-
-              <div class="form-group hidden" id="other-type-group">
-                <label for="other-type">Add New Type</label>
-                <input
-                  type="text"
-                  id="other-type"
-                  placeholder="Enter new unit type"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" id="price" placeholder="Enter price" />
-              </div>
-
-              <div class="form-group">
-                <label for="area-size">Area Size (m²)</label>
-                <input
-                  type="number"
-                  id="area-size"
-                  placeholder="Enter area size"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="bedrooms">Bedrooms</label>
-                <input
-                  type="number"
-                  id="bedrooms"
-                  placeholder="Enter bedrooms count"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="bathrooms">Bathrooms</label>
-                <input
-                  type="number"
-                  id="bathrooms"
-                  placeholder="Enter bathrooms count"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="status">Status</label>
-                <select id="status">
-                  <option value="">Select Status</option>
-                  <option value="Available">Available</option>
-                  <option value="Sold">Sold</option>
-                  <option value="Reserved">Reserved</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="team">Assigned Team</label>
-                <select
-                  id="team"
-                  onchange="toggleOtherField('team', 'other-team-group')"
-                >
-                  <option value="">Select Team</option>
-                  <option value="New Cairo Team">New Cairo Team</option>
-                  <option value="Zayed Team">Zayed Team</option>
-                  <option value="October Team">October Team</option>
-                  <option value="other">+ Add New Team</option>
-                </select>
-              </div>
-
-              <div class="form-group hidden" id="other-team-group">
-                <label for="other-team">Add New Team</label>
-                <input
-                  type="text"
-                  id="other-team"
-                  placeholder="Enter new team name"
-                />
-              </div>
-
-              <div class="form-group full-width">
-                <label for="description">Description</label>
-                <textarea
-                  id="description"
-                  rows="5"
-                  placeholder="Write a short description about the unit"
-                ></textarea>
-              </div>
+        <form class="unit-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="unit-title">Unit Title</label>
+              <input type="text" id="unit-title" placeholder="Enter unit title" />
             </div>
 
-            <div class="form-actions">
-              <button type="submit" class="primary-btn">Save Unit</button>
-              <button type="reset" class="secondary-btn">Reset</button>
+            <div class="form-group">
+              <label for="area">Area</label>
+              <select id="area" class="toggle-other" data-target="other-area-group">
+                <option value="">Select Area</option>
+                <option value="New Cairo">New Cairo</option>
+                <option value="Sheikh Zayed">Sheikh Zayed</option>
+                <option value="October">October</option>
+                <option value="North Coast">North Coast</option>
+                <option value="other">+ Add New Area</option>
+              </select>
             </div>
-          </form>
-        </section>
-      </main>
-    </div>
 
-    <script>
-      function toggleOtherField(selectId, targetId) {
-        const select = document.getElementById(selectId);
-        const target = document.getElementById(targetId);
+            <div class="form-group hidden" id="other-area-group">
+              <label for="other-area">Add New Area</label>
+              <input type="text" id="other-area" placeholder="Enter new area name" />
+            </div>
 
-        if (select.value === "other") {
-          target.classList.remove("hidden");
-        } else {
-          target.classList.add("hidden");
-        }
-      }
-    </script>
-  </body>
+            <div class="form-group">
+              <label for="compound">Compound</label>
+              <select id="compound" class="toggle-other" data-target="other-compound-group">
+                <option value="">Select Compound</option>
+                <option value="Mivida">Mivida</option>
+                <option value="Mountain View">Mountain View</option>
+                <option value="Palm Hills">Palm Hills</option>
+                <option value="Marassi">Marassi</option>
+                <option value="other">+ Add New Compound</option>
+              </select>
+            </div>
+
+            <div class="form-group hidden" id="other-compound-group">
+              <label for="other-compound">Add New Compound</label>
+              <input type="text" id="other-compound" placeholder="Enter new compound name" />
+            </div>
+
+            <div class="form-group">
+              <label for="unit-type">Unit Type</label>
+              <select id="unit-type" class="toggle-other" data-target="other-type-group">
+                <option value="">Select Type</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Villa">Villa</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Twin House">Twin House</option>
+                <option value="Chalet">Chalet</option>
+                <option value="Standalone">Standalone</option>
+                <option value="other">+ Add New Type</option>
+              </select>
+            </div>
+
+            <div class="form-group hidden" id="other-type-group">
+              <label for="other-type">Add New Type</label>
+              <input type="text" id="other-type" placeholder="Enter new unit type" />
+            </div>
+
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" id="price" placeholder="Enter price" min="0" />
+            </div>
+
+            <div class="form-group">
+              <label for="area-size">Area Size (m²)</label>
+              <input type="number" id="area-size" placeholder="Enter area size" min="0" />
+            </div>
+
+            <div class="form-group">
+              <label for="bedrooms">Bedrooms</label>
+              <input type="number" id="bedrooms" placeholder="Enter bedrooms count" min="0" />
+            </div>
+
+            <div class="form-group">
+              <label for="bathrooms">Bathrooms</label>
+              <input type="number" id="bathrooms" placeholder="Enter bathrooms count" min="0" />
+            </div>
+
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status">
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Sold">Sold</option>
+                <option value="Reserved">Reserved</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="team">Assigned Team</label>
+              <select id="team" class="toggle-other" data-target="other-team-group">
+                <option value="">Select Team</option>
+                <option value="New Cairo Team">New Cairo Team</option>
+                <option value="Zayed Team">Zayed Team</option>
+                <option value="October Team">October Team</option>
+                <option value="other">+ Add New Team</option>
+              </select>
+            </div>
+
+            <div class="form-group hidden" id="other-team-group">
+              <label for="other-team">Add New Team</label>
+              <input type="text" id="other-team" placeholder="Enter new team name" />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="description">Description</label>
+              <textarea id="description" rows="5" placeholder="Write a short description about the unit"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">Save Unit</button>
+            <button type="reset" class="secondary-btn">Reset</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleSelects = document.querySelectorAll('.toggle-other');
+
+      toggleSelects.forEach(select => {
+        select.addEventListener('change', (e) => {
+          const targetId = e.target.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+
+          if (e.target.value === "other") {
+            targetElement.classList.remove("hidden");
+          } else {
+            targetElement.classList.add("hidden");
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>

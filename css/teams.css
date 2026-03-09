@@ -160,19 +160,16 @@
 /* =========================================
    Form Layout
    ========================================= */
-.compound-form {
+.team-form {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-items: flex-end; /* Aligns the button with the input fields */
+  flex-wrap: wrap;
 }
 
 .form-group {
+  flex: 1;
+  min-width: 260px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -203,7 +200,6 @@
 }
 
 .primary-btn {
-  align-self: flex-start;
   padding: 14px 20px;
   border: none;
   border-radius: 10px;
@@ -213,6 +209,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  height: 50px; /* Matches standard input height so they align perfectly */
 }
 
 .primary-btn:hover {
@@ -254,21 +251,6 @@ td {
   color: #374151;
 }
 
-/* Status Badges */
-.status {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.active-status {
-  background-color: #dcfce7;
-  color: #166534;
-}
-
-/* Table Actions */
 .table-btn {
   padding: 8px 14px;
   border: none;
@@ -306,10 +288,6 @@ td {
   .main-content {
     padding: 24px;
   }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Mobile */
@@ -344,9 +322,13 @@ td {
   .table-section {
     padding: 18px;
   }
+  
+  .team-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
   .primary-btn {
     width: 100%;
-    align-self: stretch;
   }
 }
