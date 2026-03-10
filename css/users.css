@@ -1,0 +1,336 @@
+/* =========================================
+   Utility Classes
+   ========================================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* =========================================
+   Base Layout & Structure
+   ========================================= */
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.main-content {
+    flex: 1;
+    padding: 28px;
+}
+
+/* =========================================
+   Sidebar
+   ========================================= */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 28px 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-top {
+    margin-bottom: 32px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.sidebar-subtitle {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li a {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a.active {
+    background-color: #1e293b;
+}
+
+/* =========================================
+   Topbar & User Box
+   ========================================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.topbar-text h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.topbar-text p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--white);
+    padding: 10px 14px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+}
+
+.user-role {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--primary-accent);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* =========================================
+   Sections & Typography
+   ========================================= */
+.form-section,
+.table-section {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.form-section {
+    margin-bottom: 24px;
+}
+
+.section-header {
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   Form Layout
+   ========================================= */
+.user-form {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    /* Aligns the button with the input fields */
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    outline: none;
+    font-size: 15px;
+    background-color: var(--white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(200, 32, 33, 0.12);
+}
+
+.primary-btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-accent);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 50px;
+    /* Matches standard input height so they align perfectly */
+}
+
+.primary-btn:hover {
+    background-color: #a81819;
+}
+
+/* =========================================
+   Table Layout
+   ========================================= */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+thead {
+    background-color: #f8fafc;
+}
+
+th,
+td {
+    padding: 16px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+td {
+    font-size: 14px;
+    color: #374151;
+}
+
+.table-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.table-btn:hover {
+    background-color: #1e293b;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .page-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main-content {
+        padding: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .sidebar {
+        padding: 20px 16px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .sidebar-nav ul {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .topbar-text h1 {
+        font-size: 26px;
+    }
+
+    .user-box {
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 12px;
+    }
+
+    .form-section,
+    .table-section {
+        padding: 18px;
+    }
+
+    .team-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-btn {
+        width: 100%;
+    }
+}
