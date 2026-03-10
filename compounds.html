@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,15 +61,21 @@
             </div>
 
             <div class="form-group">
-              <label for="area">Select Area</label>
-              <select id="area" required>
+              <label for="area">Area</label>
+              <select id="area" class="toggle-other" data-target="other-area-group">
                 <option value="">Select Area</option>
-                <option value="new-cairo">New Cairo</option>
-                <option value="sheikh-zayed">Sheikh Zayed</option>
-                <option value="october">October</option>
-                <option value="north-coast">North Coast</option>
+                <option value="New Cairo">New Cairo</option>
+                <option value="Sheikh Zayed">Sheikh Zayed</option>
+                <option value="October">October</option>
+                <option value="North Coast">North Coast</option>
+                <option value="other">+ Add New Area</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-group hidden" id="other-area-group">
+            <label for="other-area">Add New Area</label>
+            <input type="text" id="other-area" placeholder="Enter new area name" />
           </div>
 
           <button type="submit" class="primary-btn">Add Compound</button>
@@ -133,5 +140,24 @@
       </section>
     </main>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleSelects = document.querySelectorAll('.toggle-other');
+
+      toggleSelects.forEach(select => {
+        select.addEventListener('change', (e) => {
+          const targetId = e.target.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+
+          if (e.target.value === "other") {
+            targetElement.classList.remove("hidden");
+          } else {
+            targetElement.classList.add("hidden");
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
