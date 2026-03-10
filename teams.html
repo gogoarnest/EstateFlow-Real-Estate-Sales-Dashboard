@@ -49,24 +49,13 @@
       <section class="form-section">
         <div class="section-header">
           <h2>Add New Team</h2>
-          <p>Create and assign new teams to specific areas</p>
+          <p>Create and manage sales teams across the system</p>
         </div>
 
         <form class="team-form">
           <div class="form-group">
             <label for="team-name">Team Name</label>
-            <input type="text" id="team-name" placeholder="Enter Team name" required />
-          </div>
-          
-          <div class="form-group">
-            <label for="area">Area</label>
-            <select id="area" required>
-              <option value="">Select Area</option>
-              <option value="New Cairo">New Cairo</option>
-              <option value="Sheikh Zayed">Sheikh Zayed</option>
-              <option value="October">October</option>
-              <option value="North Coast">North Coast</option>
-            </select>
+            <input type="text" id="team-name" placeholder="Enter team name" required />
           </div>
 
           <button type="submit" class="primary-btn">Add Team</button>
@@ -81,13 +70,13 @@
 
         <div class="table-wrapper">
           <table>
-            <caption class="sr-only">List of all real estate teams and their assigned areas</caption>
+            <caption class="sr-only">List of all real estate teams</caption>
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Team Name</th>
-                <th>Area</th>
                 <th>Created By</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -95,29 +84,29 @@
               <tr>
                 <td>#01</td>
                 <td>Team 1</td>
-                <td>New Cairo</td>
                 <td>Admin</td>
+                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#02</td>
                 <td>Team 2</td>
-                <td>Sheikh Zayed</td>
                 <td>Admin</td>
+                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#03</td>
                 <td>Team 3</td>
-                <td>October</td>
                 <td>Admin</td>
+                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
               <tr>
                 <td>#04</td>
                 <td>Team 4</td>
-                <td>North Coast</td>
                 <td>Admin</td>
+                <td><span class="status active-status">Active</span></td>
                 <td><button class="table-btn">Edit</button></td>
               </tr>
             </tbody>
