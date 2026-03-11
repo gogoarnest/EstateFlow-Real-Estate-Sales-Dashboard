@@ -179,7 +179,9 @@
   outline: none;
   font-size: 15px;
   background-color: var(--white);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .filter-group input:focus,
@@ -333,6 +335,12 @@ td {
 
 .compare-card ul li strong {
   color: var(--text-main);
+}
+.filter-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* =========================================

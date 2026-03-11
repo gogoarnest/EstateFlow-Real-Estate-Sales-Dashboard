@@ -1,3 +1,10 @@
+<?php
+include "php/auth/check-auth.php";
+include "php/config/db.php";
+
+$sql = "SELECT * FROM compounds ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,13 +31,14 @@
 
       <nav class="sidebar-nav">
         <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="areas.html">Areas</a></li>
-          <li><a href="compounds.html" class="active">Compounds</a></li>
-          <li><a href="units.html">Units</a></li>
-          <li><a href="add-unit.html">Add Unit</a></li>
-          <li><a href="teams.html">Teams</a></li>
-          <li><a href="users.html">Users</a></li>
+          <li><a href="dashboard.php">Dashboard</a></li>
+          <li><a href="areas.php">Areas</a></li>
+          <li><a href="compounds.php" class="active">Compounds</a></li>
+          <li><a href="units.php">Units</a></li>
+          <li><a href="add-unit.php">Add Unit</a></li>
+          <li><a href="teams.php">Teams</a></li>
+          <li><a href="users.php">Users</a></li>
+          <li><a href="php/auth/logout.php">Logout</a></li>
         </ul>
       </nav>
     </aside>
@@ -54,21 +62,29 @@
           <p>Create compounds dynamically for future search and filtering</p>
         </div>
 
-        <form class="compound-form">
+        <form class="compound-form" action="php/compounds/add-compound.php" method="POST">
           <div class="form-grid">
             <div class="form-group">
               <label for="compound-name">Compound Name</label>
-              <input type="text" id="compound-name" placeholder="Enter compound name" required />
+              <input type="text" id="compound-name" name="compound-name" placeholder="Enter compound name" required />
             </div>
 
             <div class="form-group">
               <label for="area">Area</label>
-              <select id="area" class="toggle-other" data-target="other-area-group">
+              <select id="area" name="area" class="toggle-other" data-target="other-area-group" required>
                 <option value="">Select Area</option>
-                <option value="New Cairo">New Cairo</option>
-                <option value="Sheikh Zayed">Sheikh Zayed</option>
-                <option value="October">October</option>
-                <option value="North Coast">North Coast</option>
+
+                <?php
+                $areasQuery = "SELECT * FROM areas ORDER BY name ASC";
+                $areasResult = mysqli_query($conn, $areasQuery);
+
+                if ($areasResult && mysqli_num_rows($areasResult) > 0) {
+                    while ($areaRow = mysqli_fetch_assoc($areasResult)) {
+                        echo '<option value="' . htmlspecialchars($areaRow['name']) . '">' . htmlspecialchars($areaRow['name']) . '</option>';
+                    }
+                }
+                ?>
+
                 <option value="other">+ Add New Area</option>
               </select>
             </div>
@@ -76,7 +92,7 @@
 
           <div class="form-group hidden" id="other-area-group">
             <label for="other-area">Add New Area</label>
-            <input type="text" id="other-area" placeholder="Enter new area name" />
+            <input type="text" id="other-area" name="other-area" placeholder="Enter new area name" />
           </div>
 
           <button type="submit" class="primary-btn">Add Compound</button>
@@ -97,57 +113,41 @@
                 <th>ID</th>
                 <th>Compound Name</th>
                 <th>Area</th>
-                <th>Created By</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
-                <td>#01</td>
-                <td>Mivida</td>
-                <td>New Cairo</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#02</td>
-                <td>Palm Hills</td>
-                <td>October</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#03</td>
-                <td>Mountain View</td>
-                <td>New Cairo</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#04</td>
-                <td>Marassi</td>
-                <td>North Coast</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
+              <?php if (mysqli_num_rows($result) > 0): ?>
+                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                  <tr>
+                    <td>#<?php echo $row['id']; ?></td>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['area']); ?></td>
+                    <td><span class="status active-status">Active</span></td>
+                    <td><button class="table-btn" type="button">Edit</button></td>
+                  </tr>
+                <?php endwhile; ?>
+              <?php else: ?>
+                <tr>
+                  <td colspan="5" style="text-align:center;">No compounds found</td>
+                </tr>
+              <?php endif; ?>
             </tbody>
           </table>
         </div>
       </section>
     </main>
   </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const toggleSelects = document.querySelectorAll('.toggle-other');
+      const toggleSelects = document.querySelectorAll(".toggle-other");
 
       toggleSelects.forEach(select => {
-        select.addEventListener('change', (e) => {
-          const targetId = e.target.getAttribute('data-target');
+        select.addEventListener("change", (e) => {
+          const targetId = e.target.getAttribute("data-target");
           const targetElement = document.getElementById(targetId);
 
           if (e.target.value === "other") {

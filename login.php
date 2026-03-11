@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+/* لو المستخدم مسجل دخول بالفعل */
+if (isset($_SESSION['user_name'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+$error_message = "";
+
+if (isset($_GET['error'])) {
+    $error_message = "Invalid email or password.";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +30,7 @@
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/login.css" />
 </head>
+
 <body>
   <div class="login-page">
     <div class="login-wrapper">
@@ -36,12 +52,17 @@
 
       <div class="login-right">
         <div class="login-card">
+
           <div class="card-header">
             <h2>Login</h2>
             <p>Access your account securely</p>
           </div>
 
-          <form class="login-form">
+          <?php if (!empty($error_message)): ?>
+            <p class="error-message"><?php echo $error_message; ?></p>
+          <?php endif; ?>
+
+          <form class="login-form" action="php/auth/login.php" method="POST">
             <div class="input-group">
               <label for="email">Email</label>
               <input
@@ -49,6 +70,7 @@
                 id="email"
                 name="email"
                 placeholder="Enter your email"
+                required
               />
             </div>
 
@@ -59,15 +81,18 @@
                 id="password"
                 name="password"
                 placeholder="Enter your password"
+                required
               />
             </div>
 
             <button type="submit" class="login-btn">Login</button>
 
             <p class="login-note">
-              Don’t have an account? Please contact the admin.
+              Access to this system is managed by the administrator.<br>
+              Please contact your system administrator if you do not have login credentials.
             </p>
           </form>
+
         </div>
       </div>
 

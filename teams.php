@@ -1,3 +1,10 @@
+<?php
+include "php/auth/check-auth.php";
+include "php/config/db.php";
+
+$sql = "SELECT * FROM teams ORDER BY id DESC";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,13 +31,14 @@
 
       <nav class="sidebar-nav">
         <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="areas.html">Areas</a></li>
-          <li><a href="compounds.html">Compounds</a></li>
-          <li><a href="units.html">Units</a></li>
-          <li><a href="add-unit.html">Add Unit</a></li>
-          <li><a href="teams.html" class="active">Teams</a></li>
-          <li><a href="users.html">Users</a></li>
+          <li><a href="dashboard.php">Dashboard</a></li>
+          <li><a href="areas.php">Areas</a></li>
+          <li><a href="compounds.php">Compounds</a></li>
+          <li><a href="units.php">Units</a></li>
+          <li><a href="add-unit.php">Add Unit</a></li>
+          <li><a href="teams.php" class="active">Teams</a></li>
+          <li><a href="users.php">Users</a></li>
+          <li><a href="php/auth/logout.php">Logout</a></li>
         </ul>
       </nav>
     </aside>
@@ -54,10 +62,10 @@
           <p>Create and manage sales teams across the system</p>
         </div>
 
-        <form class="team-form">
+        <form class="team-form" action="php/teams/add-team.php" method="POST">
           <div class="form-group">
             <label for="team-name">Team Name</label>
-            <input type="text" id="team-name" placeholder="Enter team name" required />
+            <input type="text" id="team-name" name="team-name" placeholder="Enter team name" required />
           </div>
 
           <button type="submit" class="primary-btn">Add Team</button>
@@ -77,40 +85,26 @@
               <tr>
                 <th>ID</th>
                 <th>Team Name</th>
-                <th>Created By</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
-                <td>#01</td>
-                <td>Team 1</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#02</td>
-                <td>Team 2</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#03</td>
-                <td>Team 3</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
-              <tr>
-                <td>#04</td>
-                <td>Team 4</td>
-                <td>Admin</td>
-                <td><span class="status active-status">Active</span></td>
-                <td><button class="table-btn">Edit</button></td>
-              </tr>
+              <?php if (mysqli_num_rows($result) > 0): ?>
+                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                  <tr>
+                    <td>#<?php echo $row['id']; ?></td>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><span class="status active-status">Active</span></td>
+                    <td><button class="table-btn" type="button">Edit</button></td>
+                  </tr>
+                <?php endwhile; ?>
+              <?php else: ?>
+                <tr>
+                  <td colspan="4" style="text-align:center;">No teams found</td>
+                </tr>
+              <?php endif; ?>
             </tbody>
           </table>
         </div>
